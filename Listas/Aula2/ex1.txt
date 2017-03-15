@@ -1,0 +1,5 @@
+• Construa um programa em Java para calcular o IMC de uma pessoa
+• O usuário insere o peso e altura em duas caixas de texto
+• O resultado é calculado através de um botão “calcular
+• A resposta deve ser exibida em uma pop-up
+• IMC = peso / altura 2

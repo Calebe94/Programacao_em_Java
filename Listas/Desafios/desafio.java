@@ -14,7 +14,7 @@ public class desafio{
   private String capital;
   private int dimension;
   //That list will be used to allocate memory dynamically to store country's frontier
-  private ArrayList<desafio> frontierList;
+  private ArrayList<String> frontierList;
   private List frontiers = new ArrayList();
   
   private int how_many_borders = 0;
@@ -27,9 +27,9 @@ public class desafio{
     //Allocate more memory to list itens 
     this.frontierList = new ArrayList<>();
     
-    for (int index = 0 ; index < 3 ; index++){
-      this.frontier[index] = border_countries[index];
-    }
+    //for (int index = 0 ; index < 3 ; index++){
+    //  this.frontier[index] = border_countries[index];
+    //}
   }
   String getCountryName(){
     return this.name;
@@ -44,12 +44,13 @@ public class desafio{
     }
     return frontier;
   }
-  Boolean setAnotherFrontier(String another){
+  Boolean setFrontier(String another){
     if(another == this.name){
       return false;
     }else{
-      how_many_borders++;
-      this.frontier[how_many_borders] = another;
+      //how_many_borders++;
+      //this.frontier[how_many_borders] = another;
+      this.frontierList.add(another);
       return true;
     }
   }
@@ -75,28 +76,40 @@ public class desafio{
     frontier1[0] = "Paraguai";
     frontier1[1] = "Argentina";
     frontier1[2] = "Uruguai";
-    desafio country1 = new desafio("Brasil","Brasilia",120000,frontier1);
+    desafio country1 = new desafio("Brasil","Brasilia",120000);
+    country1.setFrontier("Paraguai");
+    country1.setFrontier("Argentina");
+    country1.setFrontier("Uruguai");
 
     frontier1[0] = "Paraguai";
     frontier1[1] = "Uruguai";
     frontier1[2] = "Chile";
 
-    desafio country2 = new desafio("Argentina","Buenos Aires",120000,frontier1);
+    desafio country2 = new desafio("Argentina","Buenos Aires",120000);
+    country2.setFrontier("Paraguai");
+    country2.setFrontier("Chile");
+    country2.setFrontier("Uruguai");
+    
 
     frontier1[0] = "Chile";
     frontier1[1] = null;
     frontier1[2] = null;
-    desafio country3 = new desafio("Paraguai","La Paz",120000,frontier1);
-
+    desafio country3 = new desafio("Paraguai","La Paz",120000);
+    country3.setFrontier("Chile");
+    
     frontier1[0] = "Paraguai";
     frontier1[1] = null;
     frontier1[2] = null;
-    desafio country4 = new desafio("Chile","Santiago",120000,frontier1);
+    desafio country4 = new desafio("Chile","Santiago",120000);
+    country4.setFrontier("Paraguai");
 
     frontier1[0] = "Brasil";
     frontier1[1] = "Argentina";
     frontier1[2] = null;
-    desafio country5 = new desafio("Uruguai","Montevidel",120000,frontier1);
+    desafio country5 = new desafio("Uruguai","Montevidel",120000);
+    country2.setFrontier("Argentina");
+    country2.setFrontier("Brasil");
+    
     System.out.println();
     System.out.println(country5.getCountryName());
     System.out.println(Arrays.toString(country5.getCountryFrontier()));
